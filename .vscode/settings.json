@@ -1,0 +1,14 @@
+{
+    "files.exclude": {
+        "**/node_modules": true,
+        "**/package-lock.json": true,
+        "**/*.pem": true,
+        "**/*.pid": true
+    },
+    "files.watcherExclude": {
+        "**/node_modules": true,
+        "**/package-lock.json": true,
+        "**/*.pem": true,
+        "**/*.pid": true
+    }
+}
