@@ -15,6 +15,16 @@ let PID_FILENAME = ".server_instance_{{PORT}}.pid";
 
 let PROCESS_OPTS = {};
 
+let expandHomeDir = function (dirPath) {
+
+    if ( dirPath.startsWith("~") ) {
+        dirPath = path.resolve ( path.join( process.env.HOME, dirPath.substr(1) ) );
+        dirPath = dirPath.toString();
+    }
+
+    return dirPath;
+}
+
 let parseOpts = function () {
 
     process.argv.forEach(function (arg) {
@@ -37,9 +47,11 @@ let parseOpts = function () {
     });
 
     PROCESS_OPTS.port = PROCESS_OPTS.port || 8080;
-    PROCESS_OPTS.dir = PROCESS_OPTS.dir || ".";
-    PROCESS_OPTS.keyPath = PROCESS_OPTS.keyPath || "./key.pem";
-    PROCESS_OPTS.certPath = PROCESS_OPTS.certPath || "./cert.pem";
+
+    PROCESS_OPTS.dir = expandHomeDir(PROCESS_OPTS.dir || ".");
+    PROCESS_OPTS.keyPath = expandHomeDir(PROCESS_OPTS.keyPath || "./key.pem");
+    PROCESS_OPTS.certPath = expandHomeDir(PROCESS_OPTS.certPath || "./cert.pem");
+
     PROCESS_OPTS.https = PROCESS_OPTS.https || false;
 
     PID_FILENAME = PID_FILENAME.replace("{{PORT}}", PROCESS_OPTS.port);
