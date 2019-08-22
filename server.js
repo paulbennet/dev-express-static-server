@@ -89,8 +89,7 @@ let startServer = function ( port, directory, args ) {
         process.exit(0);
     };
 
-    process.on("SIGINT", closeServer);
-    process.on("SIGTERM", closeServer);
+    return { close: closeServer } ;
 
 };
 

@@ -76,7 +76,7 @@ let startServer = function () {
 
     killServer();
 
-    serverAPI.start( PROCESS_OPTS.port, PROCESS_OPTS.dir, {
+    let closeServer = serverAPI.start( PROCESS_OPTS.port, PROCESS_OPTS.dir, {
         useHttps: PROCESS_OPTS.https,
         keyPath: PROCESS_OPTS.keyPath,
         certPath: PROCESS_OPTS.certPath,
@@ -105,12 +105,6 @@ let startServer = function () {
             }
         }
     } );
-
-   
-
-    let closeServer = function () {
-        
-    };
 
     process.on("SIGINT", closeServer);
     process.on("SIGTERM", closeServer);
