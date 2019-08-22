@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/paulbennet/dev-express-static-server.git"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "scripts": {
     "dev-server": "node index.js",
