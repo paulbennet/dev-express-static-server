@@ -98,8 +98,6 @@ let startServer = function () {
                 fs.unlinkSync(path.resolve(path.join( "./" , PID_FILENAME)));
             } catch (err) {
             }
-
-            process.exit(0);
         },
         onError: function (err) {
             if (err.code === 'EADDRINUSE') {
@@ -107,11 +105,23 @@ let startServer = function () {
             } else {
                 console.log("[ERROR] Server cannot start !");
             }
+
+            process.exit(-1);
         }
     } );
 
-    process.on("SIGINT", serverInstance.close);
-    process.on("SIGTERM", serverInstance.close);
+    let closeServer = function () {
+        try {
+            serverInstance.close();
+        } catch (err) {
+            console.log("[ERROR] Server cannot close !");
+        }
+
+        process.exit(0);
+    };
+
+    process.on("SIGINT", closeServer);
+    process.on("SIGTERM", closeServer);
 
 };
 
