@@ -85,8 +85,6 @@ let startServer = function ( port, directory, args ) {
         if (args.onClose) {
             args.onClose({ pid: process.pid });
         }
-
-        process.exit(0);
     };
 
     return { close: closeServer } ;

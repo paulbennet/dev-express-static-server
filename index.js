@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /**
  * @maintainers <Paul Joshua>
  */
@@ -96,6 +98,8 @@ let startServer = function () {
                 fs.unlinkSync(path.resolve(path.join( "./" , PID_FILENAME)));
             } catch (err) {
             }
+
+            process.exit(0);
         },
         onError: function (err) {
             if (err.code === 'EADDRINUSE') {
