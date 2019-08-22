@@ -70,7 +70,7 @@ let server = require("dev-express-static-server/server.js");
 - `port` is required argument
 - `directory` - Directory to serve ( default = `{CWD}` )
 - `opts`
-    - `opts.https` - If `true`, `https` server instance will be created, otherwise `http` will be used
+    - `opts.useHttps` - If `true`, `https` server instance will be created, otherwise `http` will be used
     - `opts.keyPath` - If `https` enabled, path to 
     `key.pem` file ( default = `{CWD}/key.pem` )
     - `opts.certPath` - If `https` enabled, path to `cert.pem` file ( default = `{CWD}/cert.pem` )

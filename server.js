@@ -36,6 +36,8 @@ let startServer = function ( port, directory, args ) {
 
     let app = new express();
 
+    args = args || {};
+
     let useHttps = args.useHttps || false;
     let keyPath = args.keyPath || "./key.pem";
     let certPath = args.certPath || "./cert.pem";
