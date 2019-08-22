@@ -10,8 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/paulbennet/dev-express-static-server.git"
   },
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
+  "bin": "./index.js",
   "scripts": {
     "dev-server": "node index.js",
     "start-default": "npm run dev-server -- --port=9092",
