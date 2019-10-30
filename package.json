@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/paulbennet/dev-express-static-server.git"
   },
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "index.js",
   "bin": "./index.js",
   "scripts": {
@@ -29,5 +29,5 @@
     "serve-index": "^1.9.1",
     "server-destroy": "^1.0.1"
   },
-  "license": "ISC"
+  "license": "MIT"
 }
