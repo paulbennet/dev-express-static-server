@@ -55,6 +55,8 @@ let parseOpts = function () {
     PROCESS_OPTS.certPath = expandHomeDir(PROCESS_OPTS.certPath || "./cert.pem");
 
     PROCESS_OPTS.https = PROCESS_OPTS.https || false;
+    PROCESS_OPTS.http2 = PROCESS_OPTS.http2 || false;
+    PROCESS_OPTS.spdy = PROCESS_OPTS.spdy || false;
 
     PID_FILENAME = PID_FILENAME.replace("{{PORT}}", PROCESS_OPTS.port);
 
@@ -79,6 +81,8 @@ let startServer = function () {
     killServer();
 
     let serverInstance = serverAPI.start( PROCESS_OPTS.port, PROCESS_OPTS.dir, {
+        useSpdy: PROCESS_OPTS.spdy,
+        useHttp2: PROCESS_OPTS.http2,
         useHttps: PROCESS_OPTS.https,
         keyPath: PROCESS_OPTS.keyPath,
         certPath: PROCESS_OPTS.certPath,
