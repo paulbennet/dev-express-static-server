@@ -19,6 +19,7 @@ let express = require("express");
 let compression = require("compression");
 let cors = require("cors");
 let serveIndex = require("serve-index");
+let packageJSON = require("./package.json");
 
 let killServer = function (processID) {
 
@@ -52,6 +53,13 @@ let startServer = function ( port, directory, args ) {
 
     app.use(compression());
     app.use(cors());
+
+    app.use((req, res, next) => {
+        res.set("Access-Control-Allow-Private-Network", "true");
+        res.set("X-Static-Server", `${packageJSON.name}@${packageJSON.version}`);
+
+        next();
+    });
 
     let pathToServe = path.resolve( directory || "." );
 

@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/paulbennet/dev-express-static-server.git"
   },
-  "version": "1.0.8",
+  "version": "1.1.0",
   "main": "index.js",
   "bin": "./index.js",
   "scripts": {
@@ -19,8 +19,8 @@
     "stop-default": "npm run dev-server -- --stop --port=9092"
   },
   "devDependencies": {
-    "depcheck": "^0.9.2",
-    "eslint": "^6.8.0"
+    "depcheck": "^1.4.3",
+    "eslint": "^8.8.0"
   },
   "dependencies": {
     "compression": "^1.7.4",
